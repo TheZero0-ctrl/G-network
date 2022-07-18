@@ -12,8 +12,15 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <div>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+    </div>
+    <nav>
+      <% if user_signed_in? %>
+        <%= render "layouts/navbar" %>
+      <% end %>
+    </nav>
+    <%= yield %>
   </body>
 </html>
