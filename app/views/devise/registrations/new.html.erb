@@ -1,4 +1,4 @@
-
+<% provide(:title, "Sign Up") %>
 <%# Main Container %>
 
 <div class="flex items-center justify-center min-h-screen bg-gray-900">
@@ -8,8 +8,12 @@
       <div class="text-white text-left text-sm font-light mb-4">Make New account</div>
       <button class="flex items-center justify-center bg-blue-900 text-white text-sm font-thin
         border border-blue-900 rounded-md py-4 px-6 space-x-2 hover:bg-opacity-80 hover:scale-105 active:border-blue-400 w-full">
-        <%= image_tag "google.png", class:"w-5"%>
-        <span>Sign up with google</span>
+        <%= image_tag "facebook.png", class:"w-5"%>
+         <%- if devise_mapping.omniauthable? %>
+            <%- resource_class.omniauth_providers.each do |provider| %>
+              <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %><br />
+            <% end %>
+          <% end %>
       </button>
 
       <div class="flex space-x-2 mt-10 items-center justify-center mb-10">

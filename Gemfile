@@ -53,6 +53,9 @@ gem "bootsnap", require: false
 gem 'jquery-rails', '~> 4.5'
 gem 'rails-ujs', '~> 0.1.0'
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
+gem "figaro"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
