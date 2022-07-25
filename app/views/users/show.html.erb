@@ -1,2 +1,25 @@
-<div>name: <%= @user.name %></div>
-<div>email: <%= @user.email %></div>
+<% provide(:title, @user.name) %>
+<div class="flex flex-col text-white bg-gray-900">
+    <div class="container w-full max-w-2xl m-auto">
+        <div class="flex gap-4">
+            <p>image</p>
+            <div>
+                <p><%= @user.name %></p>
+                <p>friends</p>
+            </div>
+            
+        </div>
+        <div class="flex flex-col space-y-4 md:flex-row md:space-y-0  gap-4 w-full">
+            <div>
+                gllarey
+            </div>
+
+            <div class="flex flex-col space-y-4 w-full ">
+                <% if @user.posts.any? %>
+                    <%= render @posts %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+

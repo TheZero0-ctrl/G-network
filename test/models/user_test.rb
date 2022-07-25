@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @user = User.new(name: "test user", email:"testuser10@mail.com", password:'123456')
+    @user = User.new(name: "test user", email:"testuser20@mail.com", password:'123456')
   end
 
   test "should be valid" do
@@ -42,5 +42,13 @@ class UserTest < ActiveSupport::TestCase
     duplicate_user.email = @user.email.upcase
     @user.save
     assert_not duplicate_user.valid?
+  end
+
+  test "associated post should be destroyed" do
+    @user.save
+    @user.posts.create!(body:"lorem ipsummmmm")
+    assert_difference "Post.count", -1 do
+      @user.destroy
+    end
   end
 end

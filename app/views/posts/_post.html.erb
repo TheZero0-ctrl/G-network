@@ -1,0 +1,19 @@
+<div class="bg-zinc-900 rounded-lg p-10 shadow-lg flex flex-col text-white w-full">
+    <div class="flex gap-4 justify-between">
+        <div class="flex gap-4">
+            <%= link_to "image", post.user %>
+            <div>
+                <div><%= link_to post.user.name, post.user %></div>
+                <div><%= time_ago_in_words(post.created_at) %></div>
+            </div>
+        </div>
+        <% if current_user == post.user %>
+            <div>
+                <%= link_to image_tag("delete_white_24dp", class:"transition hover:scale-105 duration-150"), post_path(post), method: :delete, data: { confirm: "You sure?" }%>
+            </div>
+        <% end %>
+    </div>
+    <div>
+        <%= post.body %>
+    </div>
+</div>

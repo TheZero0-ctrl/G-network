@@ -7,3 +7,17 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 testuser = User.create(name: "test user", email: "testuser@mail.com", password:"123456")
+
+20.times do |n|
+    name = Faker::Name.name
+    email = "testuser#{n}@mail.com"
+    password = "123456"
+    User.create!(name: name, email: email, password: password)
+end
+
+users = User.order(:created_at).take(6)
+
+10.times do
+    body = Faker::Lorem.sentence(word_count: 5)
+    users.each { |user| user.posts.create!(body: body) }
+end

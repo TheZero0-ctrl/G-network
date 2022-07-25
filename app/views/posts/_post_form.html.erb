@@ -1,0 +1,14 @@
+<div>
+    <%= form_with model: @post, data: {turbo: false} do |f|%>
+        <div class="mb-4">
+            <%= render "shared/error_message", object: f.object%>
+        </div>
+        <div class="flex gap-4">
+            <div>Image</div>
+            <%= f.text_area :body, placeholder: "Share something", class: "w-full text-gray-300 bg-zinc-700 px-3 py-1.5 border border-solid border-gray-700 rounded-lg" %>
+        </div>
+        <div class="flex justify-center mt-4">
+            <%= f.submit "Create Post", class:"border border-gray-900 px-3 py-1.5 hover:bg-gray-700 rounded-lg text-gray-400 font-bold" %>
+        </div>
+    <% end %>
+</div>

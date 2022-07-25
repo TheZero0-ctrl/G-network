@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook ]
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 50}
   validates :email, length: {maximum: 255}
