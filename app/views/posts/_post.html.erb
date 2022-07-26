@@ -14,6 +14,7 @@
         <% end %>
     </div>
     <div>
-        <%= post.body %>
+        <div class="mb-4"><%= post.body%></div>
+        <%= image_tag post.image if post.image.attached? %>
     </div>
 </div>

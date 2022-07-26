@@ -57,6 +57,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem "figaro"
 gem 'faker'
+gem 'active_storage_validations', '~> 0.9.8'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -85,4 +86,8 @@ group :test do
   gem 'minitest-reporters', '~> 1.5'
   gem 'guard', '~> 2.18'
   gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
+end
+
+group :production do
+  gem 'aws-sdk-s3', '1.46.0', require: false
 end
