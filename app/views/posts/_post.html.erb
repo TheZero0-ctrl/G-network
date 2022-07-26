@@ -9,7 +9,7 @@
         </div>
         <% if current_user == post.user %>
             <div>
-                <%= link_to image_tag("delete_white_24dp", class:"transition hover:scale-105 duration-150"), post_path(post), method: :delete, data: { confirm: "You sure?" }%>
+                <%= link_to image_tag("delete_white_24dp.svg", class:"transition hover:scale-105 duration-150"), post_path(post), method: :delete, data: { confirm: "You sure?" }%>
             </div>
         <% end %>
     </div>
